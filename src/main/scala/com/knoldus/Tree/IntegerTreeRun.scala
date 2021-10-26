@@ -5,20 +5,20 @@ object IntegerTreeRun {
   case object EmptyTree extends IntTree
   case class Node(elem: Int, left: IntTree, right: IntTree) extends IntTree
 
-  def contains(t: IntTree, v: Int): Boolean = t match {
+  def contains(t: IntTree, node: Int): Boolean = t match {
     case EmptyTree => false
-    case Node(e, l, r) =>
-      if (v < e) contains(l, v)
-      else if (v > e) contains(r, v)
+    case Node(elem, left, right) =>
+      if (node < elem) contains(left, node)
+      else if (node > elem) contains(right, node)
       else true
   }
 
-  def insert(t: IntTree, v: Int): IntTree = t match {
-    case EmptyTree => Node(v, EmptyTree, EmptyTree)
+  def insert(tree: IntTree, node: Int): IntTree = tree match {
+    case EmptyTree => Node(node, EmptyTree, EmptyTree)
     case Node(e, l, r) =>
-      if (v < e) Node(e, insert(l, v), r)
-      else if (v > e) Node(e, l, insert(r, v))
-      else t
+      if (node < e) Node(e, insert(l, node), r)
+      else if (node > e) Node(e, l, insert(r, node))
+      else tree
   }
 
   def main(args: Array[String]) {
