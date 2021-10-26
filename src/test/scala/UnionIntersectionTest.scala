@@ -1,8 +1,8 @@
-import com.knoldus.Set.SetUnion
+import com.knoldus.Set.{SetOperation}
 import org.scalatest.funsuite.AnyFunSuite
 
 class UnionIntersectionTest extends AnyFunSuite{
-  val test = new SetUnion
+  val test = new SetOperation
   test("Test Union Set") {
     val set1: Set[Int] = Set(3, 4, 5, 3, 2, 1)
     val set2: Set[Int] = Set(9, 8, 7, 6, 5, 1)
